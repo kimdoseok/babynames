@@ -14,7 +14,6 @@ class BabyName {
       $stmt = $this->pdo->prepare($queries[$i]);
       $stmt->execute();
     }
-
   }
 
   function isPopulated() {
@@ -59,7 +58,7 @@ class BabyName {
     }
 
   }
-  
+
   function getData($pagenum) {
     $numrows = 0;
     $stmt = $this->pdo->prepare("select count(year) from babies ");
@@ -77,7 +76,7 @@ class BabyName {
       array_push($this->result["lines"],$row);
     }
   }
-  
+
   function loadFileData() {
     ini_set('max_execution_time', '300');
     $farr = scandir($this->dirname);
@@ -147,7 +146,7 @@ if (array_key_exists("pn",$_GET)) {
   <meta http-equiv="Expires" CONTENT="0">
   <meta http-equiv="Cache-Control" CONTENT="no-cache, no-store, must-revalidate, public, max-age=0">
   <meta http-equiv="Pragma" CONTENT="no-cache">
-    
+
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -155,17 +154,17 @@ if (array_key_exists("pn",$_GET)) {
   <script LANGUAGE="JavaScript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script LANGUAGE="JavaScript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  
+
   <script LANGUAGE="JavaScript">
     pagenum = 0;
     lines = [];
   </script>
-    
+
   <script LANGUAGE="JavaScript">
     function populateLines(pnum) {
       pagenum = pnum;
       var urlstr = "?pn="+pnum;
-      //window.alert(urlstr);      
+      //window.alert(urlstr);
       $.ajax({url: urlstr }).done(function(result){
         //window.alert(result);
         var results = jQuery.parseJSON( result );
@@ -184,10 +183,10 @@ if (array_key_exists("pn",$_GET)) {
       });
       return pagenum;
     }
-    
+
   </script>
-    
-  <script LANGUAGE="JavaScript">    
+
+  <script LANGUAGE="JavaScript">
     $(document).ready(function (){
       pagenum=populateLines(pagenum);
       $("#tofirst").on("click",function(e){pagenum=populateLines(0);});
