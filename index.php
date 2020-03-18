@@ -205,7 +205,8 @@ if (array_key_exists("pn",$_GET)) {
 
 
   </script>
-
+ </head>
+  
   <body>
     <div class="container">
       <div class="row">
@@ -238,7 +239,8 @@ if (array_key_exists("pn",$_GET)) {
           <button type="button" class="btn btn-link" id="tolast">&gt;&gt;|</button>
         </div>
         <div id="nav1" class="col-6">
-        </div>
+	  &nbsp;
+	</div>
       </div>
     </div>
   </body>
